@@ -25,7 +25,44 @@ def get_valid_day():
     :returns: The day the user entered, as an integer.  I.e., 1 for Monday, 2 for Tuesday, 3 for Wednesday etc.
     """
     # write your code below this line
-
+def get_valid_day():
+    """
+    Complete this function so that it asks the user to enter the day of the week.
+    Once a valid response is received the program must return the day the user entered as an integer.
+    The program must not crash under any circumstances.
+    """
+    valid_days = {
+        "monday": 1,
+        "mon": 1,
+        "tuesday": 2,
+        "tues": 2,
+        "wednesday": 3,
+        "weds": 3,
+        "thursday": 4,
+        "thurs": 4,
+        "friday": 5,
+        "fri": 5,
+        "saturday": 6,
+        "sat": 6,
+        "sunday": 7,
+        "sun": 7
+    }
+    while True:
+        response = input("Please enter the day of the week: ")
+        response = response.strip().lower()
+        if response.isnumeric():
+            day_num = int(response)
+            if day_num >= 1 and day_num <= 7:
+                return day_num
+            else:
+                print("Invalid number!")
+        elif response.isalpha():
+            if response in valid_days:
+                return valid_days[response]
+            else:
+                print("Invalid day!")
+        else:
+            print("Huh?")
 
 # -------------------------------------- #
 # Do not modify the code below this line #
